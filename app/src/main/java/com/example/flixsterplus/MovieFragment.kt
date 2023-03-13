@@ -71,7 +71,9 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
                     val arrayFilmType = object: TypeToken<List<Movie>>() {}.type
                     val models : List<Movie> = gson.fromJson(resultsJSON.toString(), arrayFilmType)
                     //val sortedFilmList = models.sortedBy { nowPlayingFilm -> nowPlayingFilm.voteAvg?.times(-1) }
-                    recyclerView.adapter = FlixsterRecyclerViewAdapter(models, this@MovieFragment)
+                    //val models : List<NowPlayingFilm> = gson.fromJson(resultsJSON.toString(), arrayFilmType)
+                    val sortedFilmList = models.sortedBy { nowPlayingFilm -> nowPlayingFilm.voteAvg?.times(-1) }
+                    recyclerView.adapter = FlixsterRecyclerViewAdapter(sortedFilmList, this@MovieFragment)
                     // Look for this in Logcat:
                     Log.d("MovieItemsList", "response successful")
                 }

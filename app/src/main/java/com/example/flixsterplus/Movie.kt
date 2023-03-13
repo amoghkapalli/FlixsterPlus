@@ -11,4 +11,6 @@ class Movie (title: String,poster_path : String, overview: String) {
     var movieImageUrl: String? = null
     @SerializedName("overview")
     var description = overview
+    @SerializedName("vote_average")
+    var voteAvg: Double? = null
 }
